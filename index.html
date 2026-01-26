@@ -1,130 +1,1138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RelaxApp – Digital Utility Services</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #1e88e5;
-      color: #fff;
-      padding: 25px;
-      text-align: center;
-    }
-    section {
-      max-width: 900px;
-      margin: 15px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 6px;
-    }
-    h2 {
-      color: #1e88e5;
-    }
-    footer {
-      background: #eaeaea;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax App - Anonymous Wellness Calls</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF6BA3 0%, #F4E8FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF6BA3 0%, #F4E8FF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #FF6BA3;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: #FF6BA3;
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #FF6BA3 0%, #dc0d8d 100%);
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 107, 163, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 163, 0.4);
+        }
+        
+        .download-btn::after {
+            display: none;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #FF6BA3;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF6BA3 0%, #F4E8FF 100%);
+            padding: 140px 0 80px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -200px;
+            right: -100px;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -50px;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #ffffff;
+            color: #FF6BA3;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            font-size: 16px;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: #ffffff;
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 40px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phone-mockup::before {
+            content: '📱';
+            font-size: 200px;
+            opacity: 0.3;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #666666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 107, 163, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 163, 0.2);
+            border-color: #FF6BA3;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6BA3 0%, #F4E8FF 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 25px;
+            box-shadow: 0 5px 20px rgba(255, 107, 163, 0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000000;
+        }
+        
+        .feature-card p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.6;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #F4E8FF 0%, #ffffff 100%);
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .step-card {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(255, 107, 163, 0.2);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF6BA3 0%, #dc0d8d 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 20px rgba(255, 107, 163, 0.4);
+        }
+        
+        .step-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        
+        .step-card p {
+            font-size: 13px;
+            color: #666666;
+            line-height: 1.6;
+        }
+        
+        /* Safety Section */
+        .safety {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+        
+        .safety-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .safety-image {
+            background: linear-gradient(135deg, #FF6BA3 0%, #F4E8FF 100%);
+            border-radius: 30px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            box-shadow: 0 10px 40px rgba(255, 107, 163, 0.3);
+        }
+        
+        .safety-features {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .safety-item {
+            background: #F4E8FF;
+            padding: 20px 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .safety-item:hover {
+            border-color: #FF6BA3;
+            transform: translateX(5px);
+        }
+        
+        .safety-item-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF6BA3 0%, #dc0d8d 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+        
+        .safety-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #000000;
+        }
+        
+        .safety-item p {
+            font-size: 13px;
+            color: #666666;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #F4E8FF 0%, #ffffff 100%);
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .pricing-card {
+            background: #ffffff;
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 163, 0.2);
+            border-color: #FF6BA3;
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #FF6BA3 0%, #dc0d8d 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured h3,
+        .pricing-card.featured p,
+        .pricing-card.featured .price {
+            color: white;
+        }
+        
+        .pricing-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        
+        .price {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 25px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            font-size: 14px;
+            color: #666666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-card.featured .pricing-features li {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .pricing-features li:before {
+            content: "✓";
+            color: #06D049;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .pricing-card.featured .pricing-features li:before {
+            color: white;
+        }
+        
+        .pricing-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #FF6BA3 0%, #dc0d8d 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card.featured .pricing-btn {
+            background: white;
+            color: #FF6BA3;
+        }
+        
+        .pricing-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #FF6BA3;
+        }
+        
+        .footer-section p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #FF6BA3;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #FF6BA3;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Disclaimer Banner */
+        .disclaimer-banner {
+            background: linear-gradient(135deg, #F08605 0%, #ff9f3d 100%);
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .disclaimer-banner p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: white;
+                flex-direction: column;
+                width: 250px;
+                padding: 30px;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transition: 0.3s;
+                height: calc(100vh - 70px);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .features-grid,
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .safety-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">🌿</div>
+                    Relax App
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#safety">Safety</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#download" class="download-btn">Download App</a></li>
+                </ul>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <h1>RelaxApp</h1>
-  <p>Early-Stage Digital Utility & Communication Application</p>
-</header>
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <div class="container">
+            <p>⚠️ Not a therapy replacement • Professional support platform • For emotional wellness only</p>
+        </div>
+    </div>
 
-<section>
-  <h2>About RelaxApp</h2>
-  <p>
-    RelaxApp is an early-stage mobile application currently under development as part of a Minimum Viable Product (MVP).
-  </p>
-  <p>
-    The application is designed as a digital utility platform that provides structured communication features, scheduled voice interactions, and access to premium in-app digital services.
-  </p>
-  <p>
-    RelaxApp focuses on providing controlled, purpose-driven communication tools intended for user engagement, productivity, and digital interaction use cases.
-  </p>
-</section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Talk to a Stranger. Feel Better. Stay Anonymous.</h1>
+                    <p>A safe space where you can talk, heal, and feel heard without judgment. Connect with verified users for meaningful conversations that help reduce stress and loneliness.</p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn-primary">📱 Download Now</a>
+                        <a href="#how-it-works" class="btn-secondary">▶️ See How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Nature of Services</h2>
-  <ul>
-    <li>Utility-based communication features</li>
-    <li>Scheduled and time-based voice interaction services</li>
-    <li>Access to premium digital tools within the application</li>
-    <li>Subscription and one-time digital service access</li>
-  </ul>
-  <p>
-    No physical goods, hardware, or restricted services are offered through this platform.
-  </p>
-</section>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Relax App?</h2>
+                <p class="section-subtitle">A wellness-focused platform designed to help you feel lighter, calmer, and emotionally supported</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Anonymous</h3>
+                    <p>Your identity stays private. Talk freely without revealing who you are.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Verified Users</h3>
+                    <p>All users go through verification to ensure a safe, respectful community.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe & Moderated</h3>
+                    <p>Strict guidelines and monitoring ensure your safety at all times.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>No Judgment Zone</h3>
+                    <p>Share your thoughts and feelings without fear of criticism.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Time-Limited Sessions</h3>
+                    <p>Balanced conversations that respect everyone's time and boundaries.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💚</div>
+                    <h3>Mental Wellness Focus</h3>
+                    <p>Designed specifically for stress relief and emotional support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Payments & Billing</h2>
-  <p>
-    All payments made on RelaxApp are strictly for digital services and in-app utility features.
-  </p>
-  <p>
-    Payments are processed securely using RBI-compliant payment gateways. RelaxApp does not facilitate peer-to-peer money transfers.
-  </p>
-</section>
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How Relax App Works</h2>
+                <p class="section-subtitle">Get started in just 4 simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Create Account</h3>
+                    <p>Sign up securely using your mobile number or email address</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Choose Session</h3>
+                    <p>Select a conversation session based on availability</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Matched</h3>
+                    <p>Connect with another verified user for a voice call</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Talk & Relax</h3>
+                    <p>Share, listen, and feel emotionally lighter</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Refund & Cancellation Policy</h2>
-  <p>
-    Refunds are applicable only in cases of failed transactions, duplicate charges, or technical processing errors.
-  </p>
-  <p>
-    Once a digital service has been successfully delivered or activated, it is generally non-refundable unless otherwise stated.
-  </p>
-</section>
+    <!-- Safety Section -->
+    <section id="safety" class="safety">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Safety Is Our Priority</h2>
+                <p class="section-subtitle">Multiple layers of protection to ensure a safe, respectful environment</p>
+            </div>
+            <div class="safety-content">
+                <div class="safety-image">🛡️</div>
+                <div class="safety-features">
+                    <div class="safety-item">
+                        <div class="safety-item-icon">✓</div>
+                        <div>
+                            <h4>User Verification</h4>
+                            <p>Every account is verified before access is granted</p>
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item-icon">📋</div>
+                        <div>
+                            <h4>Strict Guidelines</h4>
+                            <p>Clear community rules that everyone must follow</p>
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item-icon">🚫</div>
+                        <div>
+                            <h4>Zero Tolerance</h4>
+                            <p>No abusive, sexual, or inappropriate content allowed</p>
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item-icon">👁️</div>
+                        <div>
+                            <h4>Call Monitoring</h4>
+                            <p>All sessions monitored for policy violations</p>
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <div class="safety-item-icon">⚡</div>
+                        <div>
+                            <h4>Instant Action</h4>
+                            <p>Report, block, or end calls anytime you need</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Privacy Policy</h2>
-  <p>
-    RelaxApp values user privacy and follows standard data protection practices.
-  </p>
-  <p>
-    Limited user information may be collected solely for application functionality, service improvement, and compliance purposes.
-  </p>
-  <p>
-    User data is not sold or shared with third parties except where required by law.
-  </p>
-</section>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-subtitle">Choose the plan that works best for you</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <p class="price">Pay as you go</p>
+                    <ul class="pricing-features">
+                        <li>15-minute sessions</li>
+                        <li>Standard matching</li>
+                        <li>Basic support</li>
+                        <li>Anonymous calls</li>
+                        <li>Safe environment</li>
+                    </ul>
+                    <button class="pricing-btn">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Premium</h3>
+                    <p class="price">Best value for regular users</p>
+                    <ul class="pricing-features">
+                        <li>30-minute sessions</li>
+                        <li>Priority matching</li>
+                        <li>Experienced listeners</li>
+                        <li>Extended call time</li>
+                        <li>Premium support</li>
+                        <li>Skip queue feature</li>
+                    </ul>
+                    <button class="pricing-btn">Choose Premium</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Pro</h3>
+                    <p class="price">For dedicated users</p>
+                    <ul class="pricing-features">
+                        <li>60-minute sessions</li>
+                        <li>Instant matching</li>
+                        <li>Certified listeners</li>
+                        <li>Unlimited daily calls</li>
+                        <li>24/7 priority support</li>
+                        <li>Advanced features</li>
+                    </ul>
+                    <button class="pricing-btn">Go Pro</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; color: #666; font-size: 14px;">
+                💳 Secure payments via trusted payment partners • Full refund for technical issues
+            </p>
+        </div>
+    </section>
 
-<section>
-  <h2>Terms & Conditions</h2>
-  <p>
-    By accessing or using RelaxApp, users agree to comply with all applicable laws and platform policies.
-  </p>
-  <p>
-    Any misuse of services, violation of terms, or unauthorized activity may result in suspension or termination of access.
-  </p>
-</section>
+    <!-- What We're NOT Section -->
+    <section class="features" style="background: #f9f9f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Relax App Is NOT</h2>
+                <p class="section-subtitle">Understanding our platform's purpose and boundaries</p>
+            </div>
+            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="feature-card" style="border: 2px solid #E81B04;">
+                    <div class="feature-icon" style="background: #E81B04;">❌</div>
+                    <h3>Not a Dating App</h3>
+                    <p>We focus solely on emotional wellness and support, not romantic connections.</p>
+                </div>
+                <div class="feature-card" style="border: 2px solid #E81B04;">
+                    <div class="feature-icon" style="background: #E81B04;">🚫</div>
+                    <h3>Not an Adult Service</h3>
+                    <p>Strictly prohibited. We maintain professional, respectful conversations only.</p>
+                </div>
+                <div class="feature-card" style="border: 2px solid #E81B04;">
+                    <div class="feature-icon" style="background: #E81B04;">⚕️</div>
+                    <h3>Not Therapy</h3>
+                    <p>We provide peer support, not professional medical or psychological treatment.</p>
+                </div>
+            </div>
+            <div style="background: #fff3cd; border-left: 4px solid #F08605; padding: 25px; border-radius: 10px; margin-top: 40px;">
+                <h3 style="color: #F08605; margin-bottom: 10px; font-size: 18px;">⚠️ Important Notice</h3>
+                <p style="color: #666; font-size: 14px; line-height: 1.8;">
+                    If you are experiencing severe emotional distress, mental health crisis, or thoughts of self-harm, please contact a certified mental health professional or local emergency helpline immediately. Relax App provides peer-to-peer emotional support only and is not a substitute for professional medical care.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Contact Information</h2>
-  <p>
-    Email: rrelaxapp@gmail.com<br/>
-    Phone: +91 9778191224<br/>
-    Location: Kerala, India
-  </p>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We're here to help answer your questions</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p style="color: #FF6BA3; font-weight: 600;">connect.relaxapp@gmail.com</p>
+                    <p>We respond within 24 hours</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p style="color: #FF6BA3; font-weight: 600;">+91-8891060106</p>
+                    <p>Mon-Fri, 10 AM - 6 PM IST</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Location</h3>
+                    <p style="color: #FF6BA3; font-weight: 600;">India</p>
+                    <p>Serving users nationwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <p>© 2026 RelaxApp. All rights reserved.</p>
-</footer>
+    <!-- Download CTA Section -->
+    <section id="download" style="padding: 100px 0; background: linear-gradient(135deg, #FF6BA3 0%, #dc0d8d 100%); text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-size: 42px; font-weight: 700; margin-bottom: 20px;">Ready to Feel Better?</h2>
+            <p style="font-size: 20px; margin-bottom: 40px; opacity: 0.95;">Download Relax App today and start your journey to emotional wellness</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn-primary" style="background: white; color: #FF6BA3;">
+                    <span style="font-size: 24px;">📱</span> Download for Android
+                </a>
+                <a href="#" class="btn-primary" style="background: white; color: #FF6BA3;">
+                    <span style="font-size: 24px;">🍎</span> Download for iOS
+                </a>
+            </div>
+            <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">Available on Google Play Store and Apple App Store</p>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌿 Relax App</h3>
+                    <p>A safe space to talk, heal, and feel heard. We believe human connection heals, and we're here to make that connection safe, meaningful, and accessible to everyone.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#safety">Safety</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                        <li><a href="#refund">Refund Policy</a></li>
+                        <li><a href="#guidelines">Community Guidelines</a></li>
+                        <li><a href="#disclaimer">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Privacy Guarantee</h3>
+                    <ul>
+                        <li>✓ No call recordings stored</li>
+                        <li>✓ Personal data encrypted</li>
+                        <li>✓ We never sell user data</li>
+                        <li>✓ GDPR compliant</li>
+                        <li>✓ Data security certified</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Relax App. All rights reserved. | Built with care for your wellbeing | Registered in India</p>
+                <p style="margin-top: 10px; font-size: 12px;">This platform provides peer-to-peer emotional support and is not a substitute for professional medical or psychological care.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            }
+        });
+    </script>
 </body>
 </html>
