@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn ₹500+/Day as Listener | Relax App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF1B6D;
+            --primary-dark: #D01558;
+            --accent: #FFD93D;
+            --success: #06D6A0;
+            --error: #EF476F;
+            --text: #1A1A1A;
+            --text-light: #666666;
+            --bg: #FFFFFF;
+            --bg-soft: #FFF9FB;
+            --border: #FFE4EE;
+        }
+        
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Sticky CTA Bar (Mobile) */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 12px 16px;
+            z-index: 999;
+            box-shadow: 0 -4px 20px rgba(255, 27, 109, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+        
+        .sticky-cta-text {
+            flex: 1;
+            color: white;
+        }
+        
+        .sticky-cta-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        
+        .sticky-cta-subtitle {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+        
+        .sticky-cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 998;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 24px;
+        }
+        
+        .back-link {
+            color: var(--text-light);
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Hero Section - Mobile First */
+        .hero {
+            background: linear-gradient(165deg, #FF1B6D 0%, #FF6BA3 50%, #FFD93D 100%);
+            padding: 32px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        
+        .hero-highlight {
+            color: var(--accent);
+            display: block;
+        }
+        
+        .hero p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            background: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            margin-bottom: 24px;
+            transition: transform 0.2s;
+        }
+        
+        .hero-cta:active {
+            transform: scale(0.98);
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+        }
+        
+        .trust-badge-icon {
+            font-size: 16px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 24px 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* Quick Form Section */
+        .quick-form {
+            padding: 32px 0;
+            background: var(--bg-soft);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .form-card {
+            background: white;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(255, 27, 109, 0.08);
+            border: 1px solid var(--border);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .progress-step {
+            flex: 1;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+        
+        .progress-step.active {
+            background: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        
+        .required {
+            color: var(--error);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            background: white;
+            color: var(--text);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 27, 109, 0.1);
+        }
+        
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .language-option {
+            position: relative;
+        }
+        
+        .language-option input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .language-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .language-option input:checked + .language-label {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 24px;
+            box-shadow: 0 4px 16px rgba(255, 27, 109, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .submit-btn:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 40px 0;
+            background: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .benefit-card {
+            background: var(--bg-soft);
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+        
+        .benefit-card:active {
+            transform: scale(0.98);
+        }
+        
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .benefit-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        
+        .benefit-content p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        /* How It Works */
+        .how-works {
+            padding: 40px 0;
+            background: var(--bg-soft);
+        }
+        
+        .steps {
+            margin-top: 24px;
+            display: grid;
+            gap: 16px;
+        }
+        
+        .step {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        
+        .step-content p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 40px 0;
+            background: white;
+        }
+        
+        .testimonial-slider {
+            margin-top: 24px;
+            display: grid;
+            gap: 16px;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-soft);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        
+        .testimonial-meta {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .testimonial-rating {
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            animation: modalSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes modalSlideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(6, 214, 160, 0.3);
+        }
+        
+        .modal-icon.error {
+            background: var(--error);
+            box-shadow: 0 8px 24px rgba(239, 71, 111, 0.3);
+        }
+        
+        .modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .modal-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .modal-btn {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .modal-btn:active {
+            transform: scale(0.98);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 40px 0;
+            background: var(--bg-soft);
+        }
+        
+        .faq-list {
+            margin-top: 24px;
+            display: grid;
+            gap: 12px;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .faq-question {
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 20px 16px;
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+            
+            .sticky-cta {
+                display: none;
+            }
+            
+            .hero {
+                padding: 60px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 56px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .stats-grid {
+                gap: 40px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .stat-label {
+                font-size: 13px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonial-slider {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .language-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .form-card {
+                padding: 40px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .testimonial-slider {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky CTA Bar (Mobile) -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-cta-text">
+            <div class="sticky-cta-title">Start Earning Today</div>
+            <div class="sticky-cta-subtitle">₹500+ daily income</div>
+        </div>
+        <a href="#apply" class="sticky-cta-btn">Apply Now</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="logo.png" height="45"/>
+                    <span>Relax</span>
+                </a>
+                <a href="index.html" class="back-link">← Back</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    ✨ 1000+ Active Listeners
+                </div>
+                <h1>
+                    Earn Money by<br>
+                    <span class="hero-highlight">Listening</span>
+                </h1>
+                <p>Get paid to have meaningful conversations. Work from home, set your own hours, and make ₹500+ daily.</p>
+                <a href="#apply" class="hero-cta">🚀 Apply in 2 Minutes</a>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">✓</span>
+                        <span>No Experience Needed</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">✓</span>
+                        <span>Weekly Payouts</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">✓</span>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">₹500+</span>
+                    <span class="stat-label">Daily Earnings</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Active Listeners</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Work Anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Application Form -->
+    <section class="quick-form" id="apply">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Quick Sign Up</span>
+                <h2 class="section-title">Start Earning Today</h2>
+                <p class="section-subtitle">Fill the form below to join our community</p>
+            </div>
+            
+            <div class="form-card">
+                <div class="form-progress">
+                    <div class="progress-step active"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                </div>
+                
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" id="age" name="age" placeholder="18+" min="18" max="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Qualification <span class="required">*</span></label>
+                        <input type="text" id="qualification" name="qualification" placeholder="e.g., BSc, MBA, 12th Pass" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Languages You Speak <span class="required">*</span></label>
+                        <div class="language-grid">
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Hindi" id="lang-hindi">
+                                <label for="lang-hindi" class="language-label">Hindi</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="English" id="lang-english">
+                                <label for="lang-english" class="language-label">English</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Malayalam" id="lang-malayalam">
+                                <label for="lang-malayalam" class="language-label">Malayalam</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Tamil" id="lang-tamil">
+                                <label for="lang-tamil" class="language-label">Tamil</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Telugu" id="lang-telugu">
+                                <label for="lang-telugu" class="language-label">Telugu</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Kannada" id="lang-kannada">
+                                <label for="lang-kannada" class="language-label">Kannada</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Bengali" id="lang-bengali">
+                                <label for="lang-bengali" class="language-label">Bengali</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Marathi" id="lang-marathi">
+                                <label for="lang-marathi" class="language-label">Marathi</label>
+                            </div>
+                            <div class="language-option">
+                                <input type="checkbox" name="languages" value="Gujarati" id="lang-gujarati">
+                                <label for="lang-gujarati" class="language-label">Gujarati</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        🚀 Submit Application
+                    </button>
+                    
+                    <p class="form-note">
+                        By submitting, you agree to our Terms & Conditions and Privacy Policy. We'll contact you within 24-48 hours.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Join Us</span>
+                <h2 class="section-title">Amazing Benefits</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h3>High Earnings</h3>
+                        <p>Earn ₹500+ daily. Get paid per minute of conversation.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏠</div>
+                    <div class="benefit-content">
+                        <h3>Work From Home</h3>
+                        <p>No commute. Work comfortably from anywhere.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <div class="benefit-content">
+                        <h3>Flexible Hours</h3>
+                        <p>Set your own schedule. Work when you want.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <div class="benefit-content">
+                        <h3>Simple Setup</h3>
+                        <p>Just need a smartphone. No special equipment.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">❤️</div>
+                    <div class="benefit-content">
+                        <h3>Help People</h3>
+                        <p>Make a real difference in people's lives daily.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-content">
+                        <h3>Weekly Payouts</h3>
+                        <p>Fast payments directly to your bank account.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Process</span>
+                <h2 class="section-title">How It Works</h2>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Apply</h3>
+                        <p>Fill the quick form above</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Verify</h3>
+                        <p>Get approved in 24-48 hours</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Listen</h3>
+                        <p>Accept calls from users</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Earn</h3>
+                        <p>Get paid weekly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Success Stories</span>
+                <h2 class="section-title">What Our Listeners Say</h2>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">👩</div>
+                        <div class="testimonial-info">
+                            <h4>Priya S.</h4>
+                            <div class="testimonial-meta">Mumbai • 3 months</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I earn ₹600-800 daily just by listening to people. Perfect work-from-home opportunity!"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">👨</div>
+                        <div class="testimonial-info">
+                            <h4>Rahul K.</h4>
+                            <div class="testimonial-meta">Delhi • 6 months</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Great platform! Flexible hours and good income. Highly recommend to everyone."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">👩</div>
+                        <div class="testimonial-info">
+                            <h4>Anjali M.</h4>
+                            <div class="testimonial-meta">Bangalore • 4 months</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Love helping people while earning. Payments are always on time. Best decision I made!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much can I earn?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Average listeners earn ₹500-800 per day. Your earnings depend on the time you dedicate and the number of calls you take. You get paid per minute of conversation.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>When do I get paid?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Payments are processed weekly directly to your bank account. You can withdraw your earnings every week with no minimum threshold.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need special qualifications?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No special qualifications needed! You just need to be 18+, have good listening skills, and be fluent in at least one Indian language.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long is the approval process?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We review applications within 24-48 hours. Once approved, you can start taking calls immediately and begin earning.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">✓</div>
+            <h3 id="modalTitle">Application Submitted!</h3>
+            <p id="modalMessage">Thank you for applying. We'll review your application and contact you within 24-48 hours.</p>
+            <button class="modal-btn" onclick="closeModal()">Got It</button>
+        </div>
+    </div>
+
+    <script>
+        // Form progress tracking
+        const form = document.getElementById('applicationForm');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const formInputs = form.querySelectorAll('input:not([type="checkbox"]), select');
+        
+        formInputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                updateProgress();
+            });
+        });
+        
+        function updateProgress() {
+            let filledFields = 0;
+            formInputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    filledFields++;
+                }
+            });
+            
+            const progress = Math.floor((filledFields / formInputs.length) * progressSteps.length);
+            
+            progressSteps.forEach((step, index) => {
+                if (index < progress) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+        
+        // Sticky CTA
+        const stickyCta = document.getElementById('stickyCta');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 300 && currentScroll > lastScroll) {
+                stickyCta.classList.add('visible');
+            } else if (currentScroll < lastScroll) {
+                stickyCta.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                    faqItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+        
+        // Form submission
+        const submitBtn = document.getElementById('submitBtn');
+        const modal = document.getElementById('modal');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const age = parseInt(document.getElementById('age').value);
+            const qualification = document.getElementById('qualification').value.trim();
+            
+            // Get selected languages
+            const selectedLanguages = [];
+            document.querySelectorAll('input[name="languages"]:checked').forEach(checkbox => {
+                selectedLanguages.push(checkbox.value);
+            });
+            
+            // Validation
+            if (!name || !phone || !age || !qualification) {
+                showModal('error', 'Missing Information', 'Please fill in all required fields.');
+                return;
+            }
+            
+            if (selectedLanguages.length === 0) {
+                showModal('error', 'Language Required', 'Please select at least one language you can speak.');
+                return;
+            }
+            
+            if (age < 18) {
+                showModal('error', 'Age Restriction', 'You must be at least 18 years old to apply.');
+                return;
+            }
+            
+            // Prepare payload
+            const payload = {
+                name: name,
+                phone: phone,
+                qualification: qualification,
+                age: age,
+                languages: selectedLanguages,
+                referral_code: "",
+                bio: "I am a call freelancer",
+                device_token: "FCM_DEVICE_TOKEN",
+                coin_rate_per_min: 5
+            };
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Submitting...';
+            
+            try {
+                // Replace with your actual API endpoint
+                const API_ENDPOINT = 'https://relax-backend.cloud/api/freelancers/signup';
+                
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                // Check if response is ok (status 200-299)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.ok && data.id) {
+                    // Success
+                    showModal('success', 'Application Submitted!', `Your application has been submitted successfully. Your ID is ${data.id}. We'll contact you within 24-48 hours.`);
+                    form.reset();
+                    updateProgress();
+                } else {
+                    // API returned error
+                    showModal('error', 'Submission Failed', data.message || 'Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                // Check if it's a CORS error
+                if (error.message.includes('CORS') || error.message.includes('Failed to fetch')) {
+                    showModal('error', 'CORS Error', 'Unable to connect to server. Please contact support or try again later.');
+                } else {
+                    showModal('error', 'Connection Error', 'Unable to submit application. Please check your internet connection and try again.');
+                }
+                console.error('Error:', error);
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🚀 Submit Application';
+            }
+        });
+
+        function showModal(type, title, message) {
+            const modalIcon = document.getElementById('modalIcon');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            if (type === 'success') {
+                modalIcon.textContent = '✓';
+                modalIcon.classList.remove('error');
+            } else {
+                modalIcon.textContent = '✕';
+                modalIcon.classList.add('error');
+            }
+            
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
