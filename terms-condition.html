@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms &amp; Conditions — RelaxApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #8aab8a;
+      --sage-light: #c5dcc5;
+      --sage-pale: #eef5ee;
+      --cream: #faf8f4;
+      --ink: #1e2420;
+      --ink-mid: #3d4840;
+      --ink-soft: #6b7a6e;
+      --stone: #d4ddd6;
+      --accent: #5c8a6e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 3.5rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 120% at 80% 50%, #2e4a38 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    header::after {
+      content: '§';
+      position: absolute;
+      right: 2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10rem;
+      font-family: 'DM Serif Display', serif;
+      color: rgba(138,171,138,0.07);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    .brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--sage-light);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .effective-date {
+      font-size: 0.875rem;
+      color: var(--sage-light);
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+
+    /* ── TOC ── */
+    .toc-bar {
+      background: var(--sage-pale);
+      border-bottom: 1px solid var(--stone);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .toc-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+    }
+
+    .toc-inner a {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .toc-inner a:hover { color: var(--ink); }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .intro {
+      background: var(--sage-pale);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 3rem;
+      font-size: 0.97rem;
+      color: var(--ink-mid);
+      font-style: italic;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    section:nth-child(1)  { animation-delay: 0.05s; }
+    section:nth-child(2)  { animation-delay: 0.10s; }
+    section:nth-child(3)  { animation-delay: 0.15s; }
+    section:nth-child(4)  { animation-delay: 0.20s; }
+    section:nth-child(5)  { animation-delay: 0.25s; }
+    section:nth-child(6)  { animation-delay: 0.30s; }
+    section:nth-child(7)  { animation-delay: 0.35s; }
+    section:nth-child(8)  { animation-delay: 0.40s; }
+    section:nth-child(9)  { animation-delay: 0.45s; }
+    section:nth-child(10) { animation-delay: 0.50s; }
+    section:nth-child(11) { animation-delay: 0.55s; }
+
+    .section-number {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    p {
+      color: var(--ink-mid);
+      margin-bottom: 0.85rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      margin: 1.25rem 0 0.5rem;
+      text-transform: uppercase;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 1rem;
+    }
+
+    ul li {
+      padding: 0.35rem 0 0.35rem 1.5rem;
+      position: relative;
+      color: var(--ink-mid);
+      font-size: 0.95rem;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 0.75rem;
+      box-shadow: 0 2px 12px rgba(30,36,32,0.04);
+    }
+
+    .card ul { margin: 0; }
+
+    .highlight {
+      background: linear-gradient(135deg, #eef5ee 0%, #f5faf5 100%);
+      border: 1px solid var(--sage-light);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Emergency / warning */
+    .warning {
+      background: #fff8f0;
+      border: 1px solid #f0c080;
+      border-left: 4px solid #e8951a;
+      border-radius: 0 12px 12px 0;
+      padding: 1.1rem 1.5rem;
+      margin-top: 0.75rem;
+      font-size: 0.93rem;
+      color: #6b4510;
+    }
+
+    .warning strong { color: #c8640a; }
+
+    /* Prohibited – red tint */
+    .prohibited {
+      background: #fff5f5;
+      border: 1px solid #f0c0c0;
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .prohibited ul li::before { color: #d07070; }
+    .prohibited ul li { color: #5a3030; }
+
+    /* Liability – neutral */
+    .neutral {
+      background: #f7f7f5;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 0.75rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--stone);
+      margin: 2.5rem 0;
+    }
+
+    .contact-card {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 16px;
+      padding: 2rem 2.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .contact-card p { color: rgba(250,248,244,0.7); margin-bottom: 0.5rem; }
+
+    .contact-card a {
+      color: var(--sage-light);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.2s;
+    }
+
+    .contact-card a:hover { color: #fff; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--stone);
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 2.5rem 1.25rem 2rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .toc-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">RelaxApp</span>
+    </div>
+    <h1>Terms &amp;<br><em>Conditions</em></h1>
+    <p class="effective-date">Effective Date — March 1, 2026</p>
+  </div>
+</header>
+
+<!-- ── Sticky TOC ── -->
+<nav class="toc-bar" aria-label="Table of contents">
+  <div class="toc-inner">
+    <a href="#s1">Service</a>
+    <a href="#s2">Accounts</a>
+    <a href="#s3">Listeners</a>
+    <a href="#s4">Acceptable Use</a>
+    <a href="#s5">Payments</a>
+    <a href="#s6">Suspension</a>
+    <a href="#s7">Liability</a>
+    <a href="#s8">IP</a>
+    <a href="#s9">Deletion</a>
+    <a href="#s10">Changes</a>
+    <a href="#s11">Contact</a>
+  </div>
+</nav>
+
+<!-- ── Content ── -->
+<main>
+
+  <p class="intro">
+    These Terms and Conditions govern your use of the RelaxApp mobile application. By accessing or using RelaxApp, you agree to these Terms.
+  </p>
+
+  <!-- 1 -->
+  <section id="s1">
+    <p class="section-number">01</p>
+    <h2>Service Description</h2>
+    <p>RelaxApp provides a peer-to-peer calling platform connecting users with trained listeners for supportive conversations aimed at stress relief and emotional comfort.</p>
+    <div class="card">
+      <p>RelaxApp services are <strong>not</strong> therapy, medical treatment, psychological counseling, or crisis intervention services.</p>
+    </div>
+    <div class="warning">
+      <strong>Emergency Notice:</strong> If you are experiencing a medical or mental health emergency, please contact local emergency services immediately.
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- 2 -->
+  <section id="s2">
+    <p class="section-number">02</p>
+    <h2>User Accounts</h2>
+    <p>Users must:</p>
+    <div class="card">
+      <ul>
+        <li>Provide accurate information</li>
+        <li>Maintain account confidentiality</li>
+        <li>Be at least 18 years old</li>
+      </ul>
+    </div>
+    <p style="margin-top:0.85rem;">Users are responsible for all activity under their account.</p>
+  </section>
+
+  <hr/>
+
+  <!-- 3 -->
+  <section id="s3">
+    <p class="section-number">03</p>
+    <h2>Listener Disclaimer</h2>
+    <p>Listeners available on RelaxApp are independent service providers recruited by RelaxApp for supportive communication purposes.</p>
+    <div class="highlight">
+      <p style="font-weight:500; margin-bottom:0.5rem;">Listeners do not:</p>
+      <ul>
+        <li>Provide licensed therapy</li>
+        <li>Diagnose conditions</li>
+        <li>Offer medical advice</li>
+      </ul>
+    </div>
+    <p style="margin-top:0.85rem;">RelaxApp is not responsible for personal decisions made based on conversations.</p>
+  </section>
+
+  <hr/>
+
+  <!-- 4 -->
+  <section id="s4">
+    <p class="section-number">04</p>
+    <h2>Acceptable Use</h2>
+    <p>Users agree <strong>NOT</strong> to engage in the following:</p>
+    <div class="prohibited">
+      <ul>
+        <li>Harass or abuse listeners</li>
+        <li>Share illegal or harmful content</li>
+        <li>Record calls without consent</li>
+        <li>Use the platform for unlawful purposes</li>
+        <li>Attempt fraud or payment manipulation</li>
+      </ul>
+    </div>
+    <p style="margin-top:0.85rem;">Violation of these terms may result in account suspension or termination.</p>
+  </section>
+
+  <hr/>
+
+  <!-- 5 -->
+  <section id="s5">
+    <p class="section-number">05</p>
+    <h2>Payments and Refunds</h2>
+    <p>Certain services may require payment.</p>
+    <div class="card">
+      <ul>
+        <li>Payments are processed securely via third-party payment providers.</li>
+        <li>Fees once consumed may be non-refundable unless required by law.</li>
+        <li>RelaxApp reserves the right to modify pricing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- 6 -->
+  <section id="s6">
+    <p class="section-number">06</p>
+    <h2>Account Suspension or Termination</h2>
+    <p>RelaxApp may suspend or terminate accounts that:</p>
+    <div class="card">
+      <ul>
+        <li>Violate these Terms</li>
+        <li>Engage in harmful behavior</li>
+        <li>Misuse platform services</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- 7 -->
+  <section id="s7">
+    <p class="section-number">07</p>
+    <h2>Limitation of Liability</h2>
+    <p>RelaxApp provides services on an <strong>"as-is"</strong> basis. RelaxApp shall not be liable for:</p>
+    <div class="neutral">
+      <ul>
+        <li>Emotional outcomes</li>
+        <li>User interactions</li>
+        <li>Service interruptions</li>
+        <li>Decisions made after conversations</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- 8 -->
+  <section id="s8">
+    <p class="section-number">08</p>
+    <h2>Intellectual Property</h2>
+    <p>All app content, branding, and technology belong to RelaxApp and may not be copied or reused without explicit permission.</p>
+  </section>
+
+  <hr/>
+
+  <!-- 9 -->
+  <section id="s9">
+    <p class="section-number">09</p>
+    <h2>Account Deletion</h2>
+    <p>Users may delete their account at any time within the application settings.</p>
+  </section>
+
+  <hr/>
+
+  <!-- 10 -->
+  <section id="s10">
+    <p class="section-number">10</p>
+    <h2>Changes to Terms</h2>
+    <p>RelaxApp may update these Terms periodically. Continued use of the App following any update indicates acceptance of the revised Terms.</p>
+  </section>
+
+  <hr/>
+
+  <!-- 11 -->
+  <section id="s11">
+    <p class="section-number">11</p>
+    <h2>Contact Information</h2>
+    <p>For support or legal inquiries, please reach out to us:</p>
+    <div class="contact-card">
+      <p>Email us at</p>
+      <a href="mailto:rrelaxapp@gmail.com">rrelaxapp@gmail.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 RelaxApp. All rights reserved.
+</footer>
+
+</body>
+</html>
