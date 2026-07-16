@@ -36,11 +36,15 @@
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--bg-darker);
   color: var(--text-primary);
-  overflow-x: hidden;
   line-height: 1.6;
 }
 
@@ -1526,7 +1530,7 @@ footer {
 
 @media (max-width: 768px) {
   section {
-    padding: 70px 0;
+    padding: 60px 0;
   }
   
   .hamburger {
@@ -1556,12 +1560,12 @@ footer {
   
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
     text-align: center;
   }
   
   .hero-title {
-    font-size: 44px;
+    font-size: 40px;
   }
   
   .hero-description {
@@ -1577,14 +1581,35 @@ footer {
     justify-content: center;
   }
   
+  .phone-container {
+    transform: rotate(0deg);
+    margin: 0 auto;
+    max-width: 290px;
+    height: 580px;
+  }
+  
+  .floating-widget {
+    display: none; /* Hide floating absolute elements to prevent mobile horizontal scroll overflow */
+  }
+  
   .simulator-grid {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
+  }
+  
+  .simulator-box {
+    padding: 24px;
+  }
+  
+  .sim-phone {
+    margin: 0 auto;
+    max-width: 290px;
+    height: 580px;
   }
   
   .features-grid, .steps-wrapper, .testimonials-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
   }
   
   .steps-wrapper::before {
@@ -1592,11 +1617,11 @@ footer {
   }
   
   .cta-banner {
-    padding: 60px 30px;
+    padding: 60px 24px;
   }
   
   .cta-banner h2 {
-    font-size: 36px;
+    font-size: 32px;
   }
   
   .footer-grid {
@@ -1613,7 +1638,11 @@ footer {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 36px;
+    font-size: 32px;
+  }
+  .phone-container, .sim-phone {
+    max-width: 260px;
+    height: 520px;
   }
   .btn {
     width: 100%;
