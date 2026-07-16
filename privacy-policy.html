@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms &amp; Conditions — RelaxApp</title>
+  
+  <!-- FontAwesome & Custom Typography -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-darker: #07050e;
+      --bg-dark: #0d0a1b;
+      --bg-card: rgba(20, 16, 38, 0.65);
+      --primary: #ff0f7b;
+      --secondary: #f53803;
+      --accent: #8a2be2;
+      --neon-blue: #00f0ff;
+      --text-primary: #ffffff;
+      --text-secondary: #a9a6c2;
+      --text-muted: #676388;
+      --success: #00ff87;
+      --font-headings: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-darker);
+      color: var(--text-primary);
+      line-height: 1.75;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Gradients */
+    .gradient-blob {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 0;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .blob-pink {
+      background: var(--primary);
+      top: -100px;
+      right: -100px;
+    }
+
+    .blob-purple {
+      background: var(--accent);
+      bottom: 20%;
+      left: -200px;
+    }
+
+    /* Header Nav Area */
+    header {
+      background: rgba(7, 5, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 20px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .home-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .home-link:hover {
+      color: var(--primary);
+    }
+
+    /* Header Hero Title */
+    .header-hero {
+      background: linear-gradient(135deg, rgba(20, 16, 38, 0.95), rgba(7, 5, 14, 0.95)),
+                  radial-gradient(circle at top right, rgba(255, 15, 123, 0.2), transparent 50%);
+      border-bottom: 1px solid rgba(255, 15, 123, 0.15);
+      padding: 70px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-hero h1 {
+      font-family: var(--font-headings);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff, var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .effective-date {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Sticky TOC Bar */
+    .toc-bar {
+      background: rgba(13, 10, 27, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .toc-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+    }
+
+    .toc-inner a {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+    }
+
+    .toc-inner a:hover {
+      color: var(--primary);
+    }
+
+    /* Container content */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Intro blurb */
+    .intro {
+      background: rgba(255, 15, 123, 0.03);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 16px 16px 0;
+      padding: 24px;
+      margin-bottom: 40px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      font-style: italic;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 50px;
+    }
+
+    .section-number {
+      font-family: var(--font-headings);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-family: var(--font-headings);
+      font-size: 24px;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    /* Sub-headings */
+    h3 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--neon-blue);
+      margin: 24px 0 12px;
+      text-transform: uppercase;
+    }
+
+    /* Lists */
+    ul {
+      list-style-type: none;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: linear-gradient(135deg, rgba(255, 15, 123, 0.04) 0%, rgba(138, 43, 226, 0.04) 100%);
+      border: 1px solid rgba(255, 15, 123, 0.15);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    /* Emergency warning */
+    .warning {
+      background: rgba(255, 59, 48, 0.04);
+      border: 1px solid rgba(255, 59, 48, 0.2);
+      border-left: 4px solid #ff3b30;
+      border-radius: 0 16px 16px 0;
+      padding: 20px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .warning strong {
+      color: #ff3b30;
+    }
+
+    /* Prohibited actions list style */
+    .prohibited {
+      background: rgba(255, 15, 123, 0.03);
+      border: 1px solid rgba(255, 15, 123, 0.15);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .prohibited ul li::before {
+      color: var(--primary);
+    }
+
+    /* Liability box */
+    .neutral {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin: 40px 0;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(20, 16, 38, 0.95), rgba(7, 5, 14, 0.95)),
+                  radial-gradient(circle at center, rgba(138, 43, 226, 0.2), transparent 60%);
+      border: 1px solid rgba(138, 43, 226, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .contact-card a {
+      color: var(--text-primary);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.2s ease;
+    }
+
+    .contact-card a:hover {
+      color: var(--primary);
+    }
+
+    /* Footer styling */
+    footer {
+      background: #040308;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 35px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 2;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      .toc-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Gradients -->
+  <div class="gradient-blob blob-pink"></div>
+  <div class="gradient-blob blob-purple"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="RelaxApp Logo">
+      </a>
+      <a href="index.html" class="home-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- TITLE BAR -->
+  <div class="header-hero">
+    <h1>Terms &amp; Conditions</h1>
+    <p class="effective-date">Effective Date — March 1, 2026</p>
+  </div>
+
+  <!-- STICKY TOC -->
+  <nav class="toc-bar" aria-label="Table of contents">
+    <div class="toc-inner">
+      <a href="#s1">Service</a>
+      <a href="#s2">Accounts</a>
+      <a href="#s3">Listeners</a>
+      <a href="#s4">Acceptable Use</a>
+      <a href="#s5">Payments</a>
+      <a href="#s6">Suspension</a>
+      <a href="#s7">Liability</a>
+      <a href="#s8">IP</a>
+      <a href="#s9">Deletion</a>
+      <a href="#s10">Changes</a>
+      <a href="#s11">Contact</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main>
+    <p class="intro">
+      These Terms and Conditions govern your use of the RelaxApp mobile application. By accessing or using RelaxApp, you agree to these Terms.
+    </p>
+
+    <!-- Section 1 -->
+    <section id="s1">
+      <p class="section-number">01</p>
+      <h2>Service Description</h2>
+      <p>RelaxApp provides a peer-to-peer calling platform connecting users with trained listeners for supportive conversations aimed at stress relief and emotional comfort.</p>
+      <div class="card">
+        <p>RelaxApp services are <strong>not</strong> therapy, medical treatment, psychological counseling, or crisis intervention services.</p>
+      </div>
+      <div class="warning">
+        <strong>Emergency Notice:</strong> If you are experiencing a medical or mental health emergency, please contact local emergency services immediately.
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Section 2 -->
+    <section id="s2">
+      <p class="section-number">02</p>
+      <h2>User Accounts</h2>
+      <p>To use RelaxApp's call services, users must comply with the following settings:</p>
+      <div class="card">
+        <ul>
+          <li>Provide accurate account information</li>
+          <li>Maintain account login credentials confidentiality</li>
+          <li>Be at least 18 years of age</li>
+        </ul>
+      </div>
+      <p style="margin-top: 16px;">Users are fully responsible for all activity conducted under their account.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 3 -->
+    <section id="s3">
+      <p class="section-number">03</p>
+      <h2>Listener Disclaimer</h2>
+      <p>Listeners available on RelaxApp are independent service providers recruited by RelaxApp for supportive communication purposes.</p>
+      <div class="highlight">
+        <p style="font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Listeners do not:</p>
+        <ul>
+          <li>Provide licensed psychological therapy</li>
+          <li>Diagnose medical or mental conditions</li>
+          <li>Offer medical treatment or advice</li>
+        </ul>
+      </div>
+      <p style="margin-top: 16px;">RelaxApp is not responsible for personal decisions made based on conversations.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 4 -->
+    <section id="s4">
+      <p class="section-number">04</p>
+      <h2>Acceptable Use</h2>
+      <p>Users agree <strong>NOT</strong> to engage in the following prohibited behaviors during calls:</p>
+      <div class="prohibited">
+        <ul>
+          <li>Harass, threaten, or abuse listeners or hosts</li>
+          <li>Share illegal, obscene, or harmful media files</li>
+          <li>Record calls or screenshot video chats without explicit consent</li>
+          <li>Use the platform for unlawful marketing or activities</li>
+          <li>Attempt payment fraud or coin manipulation</li>
+        </ul>
+      </div>
+      <p style="margin-top: 16px;">Violation of these rules may result in immediate account suspension or termination.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 5 -->
+    <section id="s5">
+      <p class="section-number">05</p>
+      <h2>Payments and Refunds</h2>
+      <p>Certain call features and services require coin packages.</p>
+      <div class="card">
+        <ul>
+          <li>Payments are processed securely via third-party gateway providers.</li>
+          <li>Purchased fees and coins are non-refundable once consumed unless required by local law.</li>
+          <li>RelaxApp reserves the right to modify calling package prices at any time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Section 6 -->
+    <section id="s6">
+      <p class="section-number">06</p>
+      <h2>Account Suspension or Termination</h2>
+      <p>RelaxApp may suspend or terminate accounts that:</p>
+      <div class="card">
+        <ul>
+          <li>Violate these Terms &amp; Conditions</li>
+          <li>Engage in harmful or abusive call behavior</li>
+          <li>Misuse platform servers or services</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Section 7 -->
+    <section id="s7">
+      <p class="section-number">07</p>
+      <h2>Limitation of Liability</h2>
+      <p>RelaxApp provides its calling platform on an <strong>"as-is"</strong> basis. RelaxApp shall not be liable for:</p>
+      <div class="neutral">
+        <ul>
+          <li>Emotional outcomes of calls</li>
+          <li>User and host personal interactions</li>
+          <li>Service lags or interruptions</li>
+          <li>Decisions made after conversation sessions</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Section 8 -->
+    <section id="s8">
+      <p class="section-number">08</p>
+      <h2>Intellectual Property</h2>
+      <p>All app assets, branding logos, text, design layouts, and technical software code belong to RelaxApp and may not be copied or reused without explicit consent.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 9 -->
+    <section id="s9">
+      <p class="section-number">09</p>
+      <h2>Account Deletion</h2>
+      <p>Users may delete their account at any time within the application settings, or request deletion by emailing our support desk.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 10 -->
+    <section id="s10">
+      <p class="section-number">10</p>
+      <h2>Changes to Terms</h2>
+      <p>RelaxApp may update these Terms periodically. Continued use of our calling service following any update indicates acceptance of the revised Terms.</p>
+    </section>
+
+    <hr>
+
+    <!-- Section 11 -->
+    <section id="s11">
+      <p class="section-number">11</p>
+      <h2>Contact Information</h2>
+      <p>For support or legal inquiries, please reach out to us:</p>
+      <div class="contact-card">
+        <p>Support & Help Desk Email</p>
+        <a href="mailto:rrelaxapp@gmail.com">rrelaxapp@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 RelaxApp. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="account-delete.html">Account Deletion</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account - RelaxApp</title>
+  
+  <!-- FontAwesome & Custom Typography -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-darker: #07050e;
+      --bg-dark: #0d0a1b;
+      --bg-card: rgba(20, 16, 38, 0.65);
+      --primary: #ff0f7b;
+      --secondary: #f53803;
+      --accent: #8a2be2;
+      --text-primary: #ffffff;
+      --text-secondary: #a9a6c2;
+      --text-muted: #676388;
+      --success: #00ff87;
+      --font-headings: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-darker);
+      color: var(--text-primary);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Glowing blobs background */
+    .gradient-blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      filter: blur(130px);
+      z-index: 0;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .blob-pink {
+      background: var(--primary);
+      top: -100px;
+      right: -100px;
+    }
+
+    .blob-purple {
+      background: var(--accent);
+      bottom: 10%;
+      left: -150px;
+    }
+
+    /* Header Nav Area */
+    header {
+      background: rgba(7, 5, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 20px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .home-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .home-link:hover {
+      color: var(--primary);
+    }
+
+    /* Header Hero Title */
+    .header-hero {
+      background: linear-gradient(135deg, rgba(20, 16, 38, 0.95), rgba(7, 5, 14, 0.95)),
+                  radial-gradient(circle at top right, rgba(255, 15, 123, 0.2), transparent 50%);
+      border-bottom: 1px solid rgba(255, 15, 123, 0.15);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-hero h1 {
+      font-family: var(--font-headings);
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff, var(--text-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .header-hero p {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Container content */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 15, 123, 0.15);
+    }
+
+    h2 {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    h2 i {
+      color: var(--primary);
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    p strong {
+      color: var(--text-primary);
+    }
+
+    /* List styling */
+    ol, ul {
+      list-style-position: inside;
+      margin-bottom: 16px;
+    }
+
+    li {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 10px;
+      padding-left: 8px;
+    }
+
+    li strong {
+      color: var(--text-primary);
+    }
+
+    .or-divider {
+      text-align: center;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin: 20px 0;
+      letter-spacing: 0.2em;
+    }
+
+    /* Email Box Info */
+    .email-box {
+      background: rgba(255, 15, 123, 0.04);
+      border: 1px solid rgba(255, 15, 123, 0.2);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .email-icon {
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    .email-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .email-details span {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .email-details a {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .email-details a:hover {
+      color: var(--primary);
+    }
+
+    /* Footer styling */
+    footer {
+      background: #040308;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 2;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Gradients -->
+  <div class="gradient-blob blob-pink"></div>
+  <div class="gradient-blob blob-purple"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="RelaxApp Logo">
+      </a>
+      <a href="index.html" class="home-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- TITLE BAR -->
+  <div class="header-hero">
+    <h1>Delete Account Request</h1>
+    <p>RelaxApp Support</p>
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <!-- Description -->
+    <div class="card">
+      <p>
+        We respect your control over your data. Users can request permanent deletion of their <strong>RelaxApp</strong> account and all associated personal information at any time.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="card">
+      <h2><i class="fa-solid fa-circle-info"></i> How to Delete Your Account</h2>
+      <p>You can delete your account directly through the mobile application configuration panel by following these steps:</p>
+      
+      <ol style="margin-left: 15px;">
+        <li>Open the <strong>RelaxApp</strong> mobile application.</li>
+        <li>Navigate to the bottom right menu tab and tap <strong>Profile ➔ Settings</strong>.</li>
+        <li>Scroll down and tap <strong>Delete Account</strong>. Confirm when prompted.</li>
+      </ol>
+
+      <div class="or-divider">OR</div>
+
+      <p>If you have already uninstalled the application or cannot access the app dashboard, you can request account deletion by emailing our support desk:</p>
+      
+      <div class="email-box">
+        <div class="email-icon">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="email-details">
+          <span>Send Deletion Request</span>
+          <a href="mailto:rrelaxapp@gmail.com">rrelaxapp@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Deleted -->
+    <div class="card">
+      <h2><i class="fa-solid fa-trash-can"></i> What Data is Permanentely Deleted?</h2>
+      <p>Upon confirming your account deletion request, the following information is permanently purged from our servers:</p>
+      <ul style="margin-left: 20px; list-style-type: square;">
+        <li>Your primary profile registration settings (Username, avatar settings, status biography).</li>
+        <li>Your verified phone number associated with the account.</li>
+        <li>Complete call log listing (Voice and video call history records).</li>
+        <li>Personal user profile configuration logs.</li>
+      </ul>
+    </div>
+
+    <!-- Data Retained -->
+    <div class="card">
+      <h2><i class="fa-solid fa-clock-rotate-left"></i> Data Retained for Compliance</h2>
+      <p>
+        To comply with Google Play transaction policy and tax/legal reporting requirements, standard payment transaction records and payment history logs are securely retained for a mandatory audit compliance window of up to <strong>90 days</strong> before permanent erasure.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 RelaxApp. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="privacy-policy.html">Terms & Conditions</a></p>
+  </footer>
+
+</body>
+</html>
